@@ -17,4 +17,4 @@ For a high level view of component communication, you can check out this [diagra
 
 # Viewing the live site
 
-You can visit the live site here. Please contribute to the story if you check it out.
+You can visit the live site [here.](https://morning-island-93023.herokuapp.com) Please contribute to the story if you check it out.
