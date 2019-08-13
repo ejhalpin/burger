@@ -26,6 +26,7 @@ module.exports = {
     return new Promise(resolve => {
       connection.query("INSERT INTO story SET ?", storyObject, (err, data) => {
         if (err) {
+          console.log(err);
           return resolve({
             status: 500,
             reason: "error adding to story: " + err.code

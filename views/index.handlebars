@@ -1,17 +1,19 @@
 {{#each data}}
 <div class="row">
-  <div class="col-2 cen">Credit: {{author}}</div>
   {{#if deleted}}
-  <div class="col-8 text-left cen text-muted" id="blurb-{{id}}">
+  <div class="col-2 cen text-muted">Credit: {{author}}</div>
+  <div class="col-8 text-left text-muted" id="blurb-{{id}}">
     {{entry}}
   </div>
   {{else}}
-  <div class="col-8 text-left cen" id="blurb-{{id}}">
+  <div class="col-2 cen ">Credit: {{author}}</div>
+  <div class="col-8 text-left " id="blurb-{{id}}">
     {{entry}}
   </div>
   {{/if}}
   <div class=" col-2 cen">
-    <button type="button" class="close" aria-label="Close" data-id="{{id}}">
+    <button type="button" class="close" aria-label="Close" data-id="{{id}}" {{#if deleted}} data-state="1" {{else}}
+      data-state="0" {{/if}}>
       <span aria-hidden="true">
         {{#if deleted}}
         &plus;

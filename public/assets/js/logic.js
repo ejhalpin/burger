@@ -19,25 +19,23 @@ $("#submit").on("click", event => {
     deleted: false
   };
   $.post("/api/new", data, response => {
-    console.log(response);
+    location.reload();
   });
 });
 
 $(document).on("click", ".close", function() {
-  var text = $(this).text();
+  var state = $(this).attr("data-state");
   var id = $(this).attr("data-id");
-  switch (text) {
-    case "+":
-      //restore the text
-      console.log("unmute");
-      console.log($("#blurb-" + id).text());
-      //put request to the api to change the deleted column to false
-      break;
-    case "x":
-      //mute the text
-      console.log("mute");
-      console.log($("#blurb-" + id).text());
-      //put request to the api to change the deleted column to true
-      break;
+  var idObj = { id: id };
+  var delObj = { deleted: false };
+  if (!parseInt(state)) {
+    delObj.deleted = true;
   }
+  $.ajax("/api/flag/", {
+    type: "PUT",
+    data: { data: [delObj, idObj] }
+  }).then(function() {
+    //reload the page to get the change - not a great way to go about this.
+    location.reload();
+  });
 });

@@ -2,6 +2,7 @@
 //===============================================================
 let express = require("express");
 let exphbs = require("express-handlebars");
+let routes = require("./controllers/routes");
 //===============================================================
 //Do a little config on Handlebars to allow for grabbing the index
 //within an each loop and incrementing the value (avoid 0)
@@ -24,16 +25,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.engine("handlebars", hbs.engine, exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
-//===============================================================
-
-//Bring in the html and api routes, passing in the express instance
-//===============================================================
-require("./app/routing/apiRoutes")(app);
+app.use(routes);
 //===============================================================
 
 //Give our server ears
 //===============================================================
 app.listen(PORT, () => {
-  console.log("listening on port 8080");
+  console.log("listening on port: " + PORT);
 });
 //===============================================================
