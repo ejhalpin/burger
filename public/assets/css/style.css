@@ -1,0 +1,20 @@
+.jumbotron {
+  padding: 20px;
+  border-radius: unset;
+}
+
+.v-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.row {
+  margin-bottom: 10px;
+}
+
+.cen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,25 @@
+{{#each data}}
+<div class="row">
+  <div class="col-2 cen">Credit: {{author}}</div>
+  {{#if deleted}}
+  <div class="col-8 text-left cen text-muted" id="blurb-{{id}}">
+    {{entry}}
+  </div>
+  {{else}}
+  <div class="col-8 text-left cen" id="blurb-{{id}}">
+    {{entry}}
+  </div>
+  {{/if}}
+  <div class=" col-2 cen">
+    <button type="button" class="close" aria-label="Close" data-id="{{id}}">
+      <span aria-hidden="true">
+        {{#if deleted}}
+        &plus;
+        {{else}}
+        &times;
+        {{/if}}
+      </span>
+    </button>
+  </div>
+</div>
+{{/each}}
